@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caleculator</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+       .container{
+        width: 100%;
+        height: 100vh;
+        background-color: aquamarine;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        }
+        .caleculator{
+            padding: 20px;
+            background-color: rgb(60, 59, 59);
+            border-radius: 10px;
+        }
+        .caleculator form input{
+            border-radius: 10px;
+            background-color: transparent;
+            box-shadow: 15px,15px rgb(344,345,345),rgb(344,345,345);
+            color: white;
+            cursor: pointer;
+            width: 70px;
+            height: 70px;  
+            margin:10px;      }
+
+        form .display{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 10px 0;
+        }
+        form .display input{
+            flex:1;
+            box-shadow: none;
+            text-align: right;
+            color: white;
+            font-size: 45px;
+        }
+        .caleculator form div #eq{
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="caleculator">
+        <form>
+            <div class="display">
+                <input type="text" id="t">
+            </div>
+            <div>
+                <input class="btn" type="button" value="A">
+                <input class="btn" type="button" value="DE">
+                <input class="btn" type="button" value=".">
+                <input class="btn" type="button" value="/">
+            </div>
+            <div class="btn">
+                <input type="button" value="1">
+                <input type="button" value="2">
+                <input type="button" value="3">
+                <input type="button" value="+">
+            </div>
+            <div class="btn">
+                <input type="button" value="4">
+                <input type="button" value="5">
+                <input type="button" value="6">
+                <input type="button" value="-">
+            </div>
+            <div class="btn">
+                <input type="button" value="7">
+                <input type="button" value="8">
+                <input type="button" value="9">
+                <input type="button" value="*">
+            </div>
+            <div>
+                <input class="btn" type="button" value="0">
+                <input class="btn" type="button" value="00">
+                <input class="btn" type="button" value="=" id="eq">
+            </div>
+        </form>
+    </div>
+    </div>
+    <script>
+        let p,x;
+        x=document.querySelectorAll('.btn');
+        for(let v of x){
+            v.addEventListener('click',display)
+        }
+        //p=document.querySelector('#t');
+        function display(event){
+            let p=document.querySelector('#t');
+           // p.value+=event.target.value; 
+            if(event.target.value == "="){
+                p.value=eval(p.value);
+            }
+            else if(event.target.value == "A"){
+                p.value=""
+            }
+            else if(event.target.value == "DE"){
+                p.value=p.value.slice(0,-1);
+            }else{
+                p.value+=event.target.value; 
+            }
+            
+
+        }
+
+    </script>
+</body>
+</html>
